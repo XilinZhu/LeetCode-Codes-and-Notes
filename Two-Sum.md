@@ -3,7 +3,7 @@
 ## Information
 
 - Date: 2020.08.07
-- [Link](https://leetcode-cn.com/problems/two-sum/)
+- Link: [LeetCode-Problem1](https://leetcode-cn.com/problems/two-sum/)
 - Tag: `Array` `Hash Map`
 
 ## Description

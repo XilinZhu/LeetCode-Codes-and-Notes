@@ -2,9 +2,9 @@
 
 ## Information
 
-- Date: 2020.08.06
-- Link: [LeetCode-Problem206](https://leetcode-cn.com/problems/reverse-linked-list/)
-- Tag: `LinkedList` `recursion` `iteration`
+- DATE: 2020.08.06
+- LINK: [LeetCode-Problem206](https://leetcode-cn.com/problems/reverse-linked-list/)
+- TAG: `LinkedList` `recursion` `iteration`
 
 ### Description
 

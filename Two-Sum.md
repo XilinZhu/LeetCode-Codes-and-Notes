@@ -2,9 +2,9 @@
 
 ## Information
 
-- Date: 2020.08.07
-- Link: [LeetCode-Problem1](https://leetcode-cn.com/problems/two-sum/)
-- Tag: `Array` `Hash Map`
+- DATE: 2020.08.07
+- LINK: [LeetCode-Problem1](https://leetcode-cn.com/problems/two-sum/)
+- TAG: `Array` `Hash Map`
 
 ## Description
 

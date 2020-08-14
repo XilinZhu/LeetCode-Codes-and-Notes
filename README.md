@@ -15,5 +15,5 @@
 | 8    | 2020.08.13 | [重建二叉树](Notes/Reconstruct-A-Binary-Tree.md)             | `tree` `recursion ` `hash map`       | 1. **`Arrays.copyOfRange()`的效率低**：尽量通过传递元素索引范围的方式实现数组切片，而不是 `Arrays.copyOfRange()` ；<br>2. **递归算法要直接**：尽量直接地实现递归逻辑，不要绕弯（如借助外部变量）； <br>3. **非重复元素的比较、查找用哈希表**. |
 | 9    | 2020.08.13 | [二叉树中和为某一值的路径](Notes/Path-Sum.md)                | `tree` `backtrace`                   | 1. **使用构造器完成 `copy `** ：`List.copyOf()` 依然面临效率问题.  `LinkList` 的构造器可以以一个集合为输入，故可用来替代 `copy` <br> 2. **`Stack` 主要适合元素为整数的情况**： `Stack` 在元素为整数时效率更高，非整数时用 `LinkedList` 为佳.<br> 3. **递归尽量拥有简明的基准条件**，哪怕结果是需要多调用一次 |
 | 10   | 2020.08.13 | [ 从上到下打印二叉树I+II+III](Notes/Level-Order.md)          | `tree` `BFS`                         | 1. `Integer[]` 转换成 `int []` 时，循环快于 `stream().mapToInt(Integer::intValue).toArray()` <br>2. 可以利用已输出的中间结果来判断当前状态：在遍历中，利用`List<List<Integer>> ans.size()` 判断当前的层数. |
-|      |            |                                                              |                                      |                                                              |
+| 11   | 2020.08.14 | [二叉搜索树的第k大节点](Kth-Largest-Of-Search-Tree.md)       |                                      |                                                              |
 

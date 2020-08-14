@@ -1,34 +1,24 @@
-import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Stack;
 
 public class PathSum {
-    List<List<Integer>> ans = new Stack<>();
+    LinkedList<List<Integer>> ans = new LinkedList<>();
+    LinkedList<Integer> path = new LinkedList<>();
 
     public List<List<Integer>> pathSum(TreeNode root, int sum) {
-        int currSum = 0;
-        Stack<Integer> path = new Stack<>();
-        
-        pathSum(root, sum, path, currSum);
+        pathSumRecursion(root, sum);
         return ans;
     }
 
-    private void pathSum(TreeNode root, int sum, Stack<Integer> path, int currSum){
+    private void pathSumRecursion(TreeNode root, int target){
         if (root == null) return;
-        if (root.left == null && root.right == null){
-            if (currSum + root.val == sum){
-                path.push(root.val);
-                ans.add(List.copyOf(path));
-                path.pop();
-            } 
-            return;
-        }
+        target -= root.val;
+        path.add(root.val);
+        if (target == 0 && root.left == null && root.right == null)       
+            ans.add(new LinkedList(path));
 
-
-        path.push(root.val);
-        currSum += root.val;
-        pathSum(root.left, sum, path, currSum);
-        pathSum(root.right, sum, path, currSum);
-        path.pop();
+        pathSumRecursion(root.left, target);
+        pathSumRecursion(root.right, target);
+        path.removeLast();
     }
 }

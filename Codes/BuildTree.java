@@ -1,7 +1,7 @@
 public class BuildTree {
     
     public TreeNode buildTree(Integer[] items, int rootIndex){
-        Integer rootVal = rootIndex < items.length ? item[rootIndex] : null;
+        Integer rootVal = rootIndex < items.length ? items[rootIndex] : null;
         if (rootVal == null) return null;
         TreeNode root = new TreeNode(rootVal);
 

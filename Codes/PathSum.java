@@ -15,7 +15,7 @@ public class PathSum {
         target -= root.val;
         path.add(root.val);
         if (target == 0 && root.left == null && root.right == null)       
-            ans.add(new LinkedList(path));
+            ans.add(new LinkedList<>(path));
 
         pathSumRecursion(root.left, target);
         pathSumRecursion(root.right, target);

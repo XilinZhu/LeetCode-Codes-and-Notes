@@ -1,20 +1,19 @@
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Stack;
+
 
 public class KthLargestOfSearchTree {
-    int k;
-    int res
+    int k,res;
 
     public int kthLargest(TreeNode root, int k) {
-        setLis(root);
-        return lis.get(lis.size()-k);
+        this.k = k;
+        dfs(root);
+        return res;
     }
 
-    private void setLis(TreeNode root){
+    private void dfs(TreeNode root){
         if (root == null) return;
-        setLis(root.left);
-        lis.add(root.val);
-        setLis(root.right);
+        dfs(root.right);
+        if (k == 0) return;
+        if (--k == 0) res = root.val; 
+        dfs(root.left);
     }
 }

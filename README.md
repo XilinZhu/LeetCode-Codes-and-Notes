@@ -19,4 +19,5 @@
 | 12   | 2020.08.15 | [二叉树的最近公共祖先](Notes/Lowest-Common-Ancestor.md)      | `tree ` `Postorder traversal`             | 1. **充分分析题目条件，首先在逻辑上对诸多情况进行简化**：比如在寻找最低公共祖先时，若题目告知输入的节点必存在于树中，则**可不必同时找到两个节点**. |
 | 13   | 2020.08.16 | [对称的二叉树](Notes/Symmetric-Tree.md)                      | `Tree` `Recursion` `Iteration`            | 1. **借助队列是将递归算法改为迭代算法的常见方式**.<br>2. **`LinkList` 允许 `null` 入队** |
 | 14   | 2020.08.18 | [合并两个排序的链表](Notes/MergeTwoList.md)                  | `divide-and-conquer` `linked list` `sort` | 1. **借助头节点来返回最终的链表**.                           |
+| 15   | 2020.08.19 | [滑动窗口的最大值](Notes/Max-Sliding-Window.md)              | `Deque` `slidingWindow`                   | 1. **除了实际运行时间，时间复杂度也是一个重要的分析角度**：实际运行时间长者可能拥有更低的时间复杂度. <br>2. **双向队列适合用于设计滑动窗口.** |
 

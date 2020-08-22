@@ -20,4 +20,7 @@
 | 13   | 2020.08.16 | [对称的二叉树](Notes/Symmetric-Tree.md)                      | `Tree` `Recursion` `Iteration`            | 1. **借助队列是将递归算法改为迭代算法的常见方式**.<br>2. **`LinkList` 允许 `null` 入队** |
 | 14   | 2020.08.18 | [合并两个排序的链表](Notes/MergeTwoList.md)                  | `divide-and-conquer` `linked list` `sort` | 1. **借助头节点来返回最终的链表**.                           |
 | 15   | 2020.08.19 | [滑动窗口的最大值](Notes/Max-Sliding-Window.md)              | `Deque` `slidingWindow`                   | 1. **除了实际运行时间，时间复杂度也是一个重要的分析角度**：实际运行时间长者可能拥有更低的时间复杂度. <br>2. **双向队列适合用于设计滑动窗口.** |
+| 16   | 2020.08.21 | [Reverse Words in a String](Notes/Reverse-Words-In-A-String.md) | `string`                                  | 1. **内置方法达到了更快的速度**（如 `String.trim()` `String.split()`），体现了“不要自己造轮子”的正确性，但面试中应避免在核心算法处使用内置方法。 |
+| 17   | 2020.08.21 | [把字符串转换成整数](Notes/String-To-Int.md)                 | `string` `char`                           | 1. **字符运算**：不使用 `map` ，而是用字符运算来实现数字字符到整数的转换；<br>2. **溢出监测**：使用 `ans > boundary || ans == boundary && curr> 7`；<br>3. **字符运算**：使用 `'+'` `'-'` `'0'` 而不是 `43` `45` `48` ，这样能提高代码的可读性. |
 
+ || ans == boundary && curr > 7` ；

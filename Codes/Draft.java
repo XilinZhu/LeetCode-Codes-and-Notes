@@ -1,39 +1,43 @@
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
 public class Draft {
     public static void main(String[] args) {
-        int i = 3, j;
-        outer: while(i > 0){
-            j = 3;
-            inner: while(j > 0){
-                if(j < 2) break outer;
-                System.out.println(j + " and " + i);
-                j--;
-            }
-            i--;
-        }
-        Draft.test();
+        Employee harry = new Employee("李明");
+        Employee harry2 = (Employee) harry.clone();
+        System.out.println(harry + " Copy: " + harry2 + "2");
     }
-    public static void test() {  
-        String s = "a";  
-        for(int i = 0; i < 100000; i++) {  
-            s += "a";  
-        }  
-        /****************toCharArray遍历*************/  
-        long start1 = System.currentTimeMillis();  
-        char[] arr = s.toCharArray();  
-        for (int i = 0; i < arr.length; i++) {
-             char c = arr[i];
-             System.out.println(c);
+}
+
+class SerialCloneable implements Cloneable, Serializable{
+
+    public Object clone() {
+        try {
+            ByteArrayOutputStream bout = new ByteArrayOutputStream();
+            ObjectOutputStream out = new ObjectOutputStream(bout);
+            out.writeObject(this);
+            out.close();
+            ByteArrayInputStream bin = new ByteArrayInputStream(bout.toByteArray());
+            ObjectInputStream in = new ObjectInputStream(bin);
+            Object ret = in.readObject();
+            return ret;
+        } catch(Exception e) {
+            e.printStackTrace();
+            return null;
         }
-        long end1 = System.currentTimeMillis();  
-        /****************charAt遍历******************/    
-        long start2 = System.currentTimeMillis();  
-        for(int i = 0; i < s.length(); i++) {  
-            char c = s.charAt(i);  
-            System.out.println(c);  
-        }  
-        long end2 = System.currentTimeMillis();  
-          
-        System.out.println(end1 - start1);  //503
-        System.out.println(end2 - start2);  //453
+    }
+}
+
+class Employee extends SerialCloneable {
+    private String name;
+
+    public Employee(String n) {
+        name = n;
+    }
+    public String toString() {
+        return name;
     }
 }

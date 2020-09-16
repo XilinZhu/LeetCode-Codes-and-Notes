@@ -23,3 +23,5 @@
 | 16   | 2020.08.21 | [Reverse Words in a String](Notes/Reverse-Words-In-A-String.md) | `string`                                  | 1. **内置方法达到了更快的速度**（如 `String.trim()` `String.split()`），体现了“不要自己造轮子”的正确性，但面试中应避免在核心算法处使用内置方法。 |
 | 17   | 2020.08.21 | [把字符串转换成整数](Notes/String-To-Int.md)                 | `string` `char`                           | 1. **字符运算**：不使用 `map` ，而是用字符运算来实现数字字符到整数的转换；<br>2. **溢出监测**：使用 `ans > boundary || ans == boundary && curr> 7`；<br>3. **字符运算**：使用 `'+'` `'-'` `'0'` 而不是 `43` `45` `48` ，这样能提高代码的可读性. |
 | 18   | 2020.09.11 | [把数组排成最小的数](Notes/Min-Number-Formed-By-Strings.md)  | `string` `sort`                           | 1. **字符串数组转字符串**：`StringBuilder` `.append()` `.toString`，速度快于 `String.join("",strs)` ； <br>2. **拓展内置的排序**：直接修改 `Array.sort(arr, Comparator)` 的比较器参数，是一种比较巧妙的排序拓展方法. |
+| 19   | 2020.09.16 | [两个链表的第一个公共节点](Notes/Get-Intersection-Node.md)   | `tree` `double pointer`                   | 1. **一个关于两个单链表的技巧**：从A的尾跳到B的头，从B的尾跳到A的头 |
+| 20   | 2020.09.16 | [复杂链表的复制](Notes/Copy-Random-List.md)                  | `linked list` `hash map`                  | 1. **递归中的状态理解**：递归开始向上返回结果前已经完成链表的遍历。 |

@@ -55,3 +55,6 @@ public ListNode reverseList(ListNode head) {
 - 取名尽量具有指代性
   - `prev` `curr` `nextTemp`
 - 十分巧妙地在普遍解法中包含了链表的长度为0 或 1 的特殊情况
+
+
+

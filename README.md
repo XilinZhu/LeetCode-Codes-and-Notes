@@ -25,3 +25,6 @@
 | 18   | 2020.09.11 | [把数组排成最小的数](Notes/Min-Number-Formed-By-Strings.md)  | `string` `sort`                           | 1. **字符串数组转字符串**：`StringBuilder` `.append()` `.toString`，速度快于 `String.join("",strs)` ； <br>2. **拓展内置的排序**：直接修改 `Array.sort(arr, Comparator)` 的比较器参数，是一种比较巧妙的排序拓展方法. |
 | 19   | 2020.09.16 | [两个链表的第一个公共节点](Notes/Get-Intersection-Node.md)   | `tree` `double pointer`                   | 1. **一个关于两个单链表的技巧**：从A的尾跳到B的头，从B的尾跳到A的头 |
 | 20   | 2020.09.16 | [复杂链表的复制](Notes/Copy-Random-List.md)                  | `linked list` `hash map`                  | 1. **递归中的状态理解**：递归开始向上返回结果前已经完成链表的遍历。 |
+| 21   | 2020.09.22 | [II. 队列的最大值](Notes/Max-Queue.md)                       | `Deque` `Queue`                           | 1. **Integer不可以直接比较！**                               |
+| 22   | 2020.09.23 | [第一个只出现一次的字符](Notes/First-Uniq-Char.md)           | `HashMap` `LinkedHashMap`                 | 1. `String` `foreach` 需要先 `String.toCharArray()`          |
+| 23   | 2020.09.23 | [最长不含重复字符的子字符串](Notes/Length-Of-Longest-Substring.md) | `HashMAp` `Double-Pointer`                | 1. 双指针 + `HashMap`加速慢指针更新速度                      |

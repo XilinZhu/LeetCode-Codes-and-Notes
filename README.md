@@ -26,5 +26,9 @@
 | 19   | 2020.09.16 | [两个链表的第一个公共节点](Notes/Get-Intersection-Node.md)   | `tree` `double pointer`                   | 1. **一个关于两个单链表的技巧**：从A的尾跳到B的头，从B的尾跳到A的头 |
 | 20   | 2020.09.16 | [复杂链表的复制](Notes/Copy-Random-List.md)                  | `linked list` `hash map`                  | 1. **递归中的状态理解**：递归开始向上返回结果前已经完成链表的遍历。 |
 | 21   | 2020.09.22 | [II. 队列的最大值](Notes/Max-Queue.md)                       | `Deque` `Queue`                           | 1. **Integer不可以直接比较！**                               |
-| 22   | 2020.09.23 | [第一个只出现一次的字符](Notes/First-Uniq-Char.md)           | `HashMap` `LinkedHashMap`                 | 1. `String` `foreach` 需要先 `String.toCharArray()`          |
-| 23   | 2020.09.23 | [最长不含重复字符的子字符串](Notes/Length-Of-Longest-Substring.md) | `HashMAp` `Double-Pointer`                | 1. 双指针 + `HashMap`加速慢指针更新速度                      |
+| 22   | 2020.09.23 | [第一个只出现一次的字符](Notes/First-Uniq-Char.md)           | `HashMap` `LinkedHashMap`                 | 1. `String` `foreach` **需要先** `String.toCharArray()`      |
+| 23   | 2020.09.23 | [最长不含重复字符的子字符串](Notes/Length-Of-Longest-Substring.md) | `HashMAp` `Double-Pointer`                | 1. **双指针 + `HashMap`加速慢指针更新速度**                  |
+| 24   | 2020.09.24 | [两两交换链表中的节点](Notes/Swap-Pairs.md)                  | `LinkedList` `Iteration`                  | 1. **当迭代因需要附加条件而变得复杂时，考虑递归**            |
+| 25   | 2020.09.24 | [括号生成](Notes/Generate-Parenthesis.md)                    | `string` `dynamic programming`            | 1. **适合动态规划的题目：初始状态清晰，递推关系可推导，直接求解较困难。** |
+| 26   | 2020.09.24 | [两数相除](Notes/Divide.md)                                  | `Binary search` `Bit operation`           | 1. **位运算的应用**：不用乘法，快速得到两个数相乘/除的正负号：`int sign = ( (dividend ^ divisor) < 0) ? -1 : 1;`；<br>2. **位运算的应用**：不用乘法，进行乘二以实现二分法：`temp <<= 1`。 |
+

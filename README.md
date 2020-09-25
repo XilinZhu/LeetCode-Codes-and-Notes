@@ -31,4 +31,6 @@
 | 24   | 2020.09.24 | [两两交换链表中的节点](Notes/Swap-Pairs.md)                  | `LinkedList` `Iteration`                  | 1. **当迭代因需要附加条件而变得复杂时，考虑递归**            |
 | 25   | 2020.09.24 | [括号生成](Notes/Generate-Parenthesis.md)                    | `string` `dynamic programming`            | 1. **适合动态规划的题目：初始状态清晰，递推关系可推导，直接求解较困难。** |
 | 26   | 2020.09.24 | [两数相除](Notes/Divide.md)                                  | `Binary search` `Bit operation`           | 1. **位运算的应用**：不用乘法，快速得到两个数相乘/除的正负号：`int sign = ( (dividend ^ divisor) < 0) ? -1 : 1;`；<br>2. **位运算的应用**：不用乘法，进行乘二以实现二分法：`temp <<= 1`。 |
+| 27   | 2020.09.25 | [旋转数组的最小数字](Notes/min-Array.md)                     | `binary search`                           | 1. **略加变化的二分法**：使用了 `j--` 这一辅助变化来解决元素重复的情况。 |
+| 28   | 2020.09.25 | [字符串的排列](Notes/Permutation.md)                         | `Backtracking` `string`                   | 1. **回溯算法模板**：a. **变量**：全局容器、局部容器、深度计数；b. **递归内容**：终止条件、深度优先、回溯向下一广度搜索；c. **要点**：在每次递归的前后作对称的操作，使得总可以回溯到上一层的状态。 |
 

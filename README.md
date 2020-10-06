@@ -29,11 +29,11 @@
 | 22   | 2020.09.23 | [第一个只出现一次的字符](Notes/First-Uniq-Char.md)           | `HashMap` `LinkedHashMap`                 | 1. `String` `foreach` **需要先** `String.toCharArray()`      |
 | 23   | 2020.09.23 | [最长不含重复字符的子字符串](Notes/Length-Of-Longest-Substring.md) | `HashMAp` `Double-Pointer`                | 1. **双指针 + `HashMap`加速慢指针更新速度**                  |
 | 24   | 2020.09.24 | [两两交换链表中的节点](Notes/Swap-Pairs.md)                  | `LinkedList` `Iteration`                  | 1. **当迭代因需要附加条件而变得复杂时，考虑递归**            |
-| 25   | 2020.09.24 | [括号生成](Notes/Generate-Parenthesis.md)                    | `string` `dynamic programming`            | 1. **适合动态规划的题目：初始状态清晰，递推关系可推导，直接求解较困难。** |
-| 26   | 2020.09.24 | [两数相除](Notes/Divide.md)                                  | `Binary search` `Bit operation`           | 1. **位运算的应用**：不用乘法，快速得到两个数相乘/除的正负号：`int sign = ( (dividend ^ divisor) < 0) ? -1 : 1;`；<br>2. **位运算的应用**：不用乘法，进行乘二以实现二分法：`temp <<= 1`。 |
+| 25   | 2020.09.24 | [括号生成](Notes/Generate-Parenthesis.md)                    | `string` `dynamic programming`            | 1. **适合动态规划的题目：初始状态清晰，递推关系可推导，直接求解较困难。**<br>2. **动态规划编程的基本元素**：动态规划数组 `dp[]`，添加进入数组的初始状态，形成每个新状态的代码实现 |
+| 26   | 2020.09.24 | [两数相除](Notes/Divide.md)                                  | `Binary search` `Bit operation`           | 动态规划数组 `dp[]` 添加进入数组的初始状态 形成每个新状态的代码实现1. **位运算的应用**：不用乘法，快速得到两个数相乘/除的正负号：`int sign = ( (dividend ^ divisor) < 0) ? -1 : 1;`；<br>2. **位运算的应用**：不用乘法，进行乘二以实现二分法：`temp <<= 1`。 |
 | 27   | 2020.09.25 | [旋转数组的最小数字](Notes/min-Array.md)                     | `binary search`                           | 1. **略加变化的二分法**：使用了 `j--` 这一辅助变化来解决元素重复的情况。 |
 | 28   | 2020.09.25 | [字符串的排列](Notes/Permutation.md)                         | `Backtracking` `string`                   | 1. **回溯算法模板**：a. **变量**：全局容器、局部容器、深度计数；b. **递归内容**：终止条件、深度优先、回溯向下一广度搜索；c. **要点**：在每次递归的前后作对称的操作，使得总可以回溯到上一层的状态。 |
-| 29   | 2020.09.28 | [二进制中1的个数](Notes/Hamming-Weight.md)                   | `Bit-operation` `Math`                    | 1. **利用位运算判断二进制第一位是否为1**：`(n & 1) == 1` ；<br>2. **利用位运算遍历二进制的每一位**：`n >>>= 1` （无符号数）。 |
+| 29   | 2020.09.28 | [二进制中1的个数](Notes/Hamming-Weight.md)                   | `Bit-operation` `Math`                    | 1. **利用位运算判断二进制第一位是否为1**：`(n & 1) == 1` ；<br>2. **利用位运算遍历二进制的每一位**：`n >>>= 1` （无符号右移）。 |
 | 30   | 2020.09.28 | [数值的整数次方](Notes/My-Pow.md)                            | `Bit-operation` `Math`                    | 1. **利用位运算判断整数能否被2整除**：`(n & 1) == 1` ；<br/>2. **计算幂函数的巧妙思路**。 |
 | 31   | 2020.09.28 | [打印从1到最大的n位数](Notes/Print-Numbers.md)               | `Big-Integer-Problem`                     | 1.**使用字符串来实现大数**； <br>2. **利用循环和遍历来避开字符串进位问题** ；<br>3. **除去开头的0** ：当前数字的位数 + 当遍历到全9数字时，从下一个数字开始，位数+1。 |
 | 32   | 2020.09.28 | [剪绳子 II](Notes/Cutting-Rope.md)                           | `Big-Integer-Problem` `Math`              | 1. **数学**：每段为3时，乘积最大，为4或2次之； <br>2. **大数求余**：循环求余，$x^a⊙p=[(x^{a−1}⊙p)(x⊙p)]⊙p=[(x^{a−1}⊙p)x]⊙p$，由于都小于$p$，所以简化为 $(x^{a-1}x)⊙p$ |
@@ -42,5 +42,8 @@
 | 35   | 2020.10.04 | [最小的k个数](Notes/Get-Least-Numbers.md)                    | `quick selection` `heap sort`             | 1. **比较快速排序与堆排序**：堆排序空间复杂度低、可以接收数据流、不改变原始数据；快速排序时间复杂度低、可以就地进行。 |
 | 36   | 2020.10.04 | [数字序列中某一位的数字](Notes/Find-Nth-Digit.md)            | `Math` `Big-Integer`                      | 1. **大数问题，使用 `long`**： 因为限制中指出 `0 <= n < 2^31`，而 `int` 的最大值为 `2^31-1` ，所以要考虑使用 `long` <br>2. **长整型转字符串**：注意将数据类型 `long` 转换为字符串时，使用的静态方法 `Long.toString()` 。 |
 | 37   | 2020.10.04 | [礼物的最大价值](Notes/Max-Value.md)                         | `dynamic programming`                     | 1. **解题思路简洁，故能顺藤摸瓜得到简洁的代码**：在寻找最大求和路径时，不从前往后看，而是从后往前看，得出每个位置能获得的最大和。 |
-| 38   | 2020.10.06 | [平衡二叉树]()                                               |                                           |                                                              |
+| 38   | 2020.10.06 | [平衡二叉树](Notes/Is-Balanced.md)                           | `Balanced-Tree` ` Postorder traversal`    | 1. **树的遍历方式选择**：自顶向下使用先序遍历，自底向上使用后序遍历。 |
+| 39   | 2020.10.06 | [II. 和为s的连续正数序列](Notes/Find-Continuous-Sequence.md) | `moving-window`                           | 1. **滑动窗口的状态变量**：滑动窗口通常会利用一个中间变量储存当前状态。这个状态根据窗口的形态变化作有规律的变化，从而不必每次重新计算状态。 |
+| 40   | 2020.10.06 | [圆圈中最后剩下的数字](Notes/Last-Remaining.md)              | `自建循环链表` `math`                     | 1. **`ArrayList` 与 `LinkedList` ：**虽然就删除操作本身而言，`LinkedList` 的时间复杂度仅为 $O(1)$，但搜索节点需要花费 $O(N)$ 的时间复杂度。通过比较发现，在 `List.remove(int index)` 的实现上，`ArrayList` 具有更低的时间复杂度。 |
+| 41   | 2020.10.06 | [不用加减乘除做加法](Add.md)                                 | `bit-operation`                           | 1.**位运算加法可以不考虑正负号**：计算机系统中，整数是以补码形式保存的，所以作加法的时候不用考虑正负号问题； <br>2. **使用位运算的加法由三部分组成：**计算进位制、计算无进位中间结果，保存当前的进位。循环，直到进位值为 0。 |
 

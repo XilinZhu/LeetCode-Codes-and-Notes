@@ -28,14 +28,14 @@
 ```java
 class Solution {
     public List<String> generateParenthesis(int n) {
-        List<List<String>> total = new ArrayList<>(n+1);
-        total.add(new LinkedList<String>(Arrays.asList("")));
-        total.add(new LinkedList<String>(Arrays.asList("()")));
+        List<List<String>> total = new ArrayList<>(n+1); //动态规划数组 dp[]
+        total.add(new LinkedList<String>(Arrays.asList(""))); //初始状态0
+        total.add(new LinkedList<String>(Arrays.asList("()"))); //初始状态1
 
         if(n <= 1) return total.get(n);
 
         for(int i = 2; i <= n; i++){
-            List<String> curr = new LinkedList<>();
+            List<String> curr = new LinkedList<>(); // 新一次规划
             for (int p = 0; p < i; p++){
                 int q = i - 1 - p;
                 for (String s1 : total.get(p)){
@@ -55,3 +55,7 @@ class Solution {
   - 初始状态清晰
   - 直接求解困难
   - 递推关系随无法直接想到，但可以一试
+- 动态规划编程的基本元素：
+  - 动态规划数组 `dp[]`
+  - 添加进入数组的初始状态
+  - 形成每个新状态的代码实现

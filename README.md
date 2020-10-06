@@ -22,7 +22,7 @@
 | 15   | 2020.08.19 | [滑动窗口的最大值](Notes/Max-Sliding-Window.md)              | `Deque` `slidingWindow`                   | 1. **除了实际运行时间，时间复杂度也是一个重要的分析角度**：实际运行时间长者可能拥有更低的时间复杂度. <br>2. **双向队列适合用于设计滑动窗口.** |
 | 16   | 2020.08.21 | [Reverse Words in a String](Notes/Reverse-Words-In-A-String.md) | `string`                                  | 1. **内置方法达到了更快的速度**（如 `String.trim()` `String.split()`），体现了“不要自己造轮子”的正确性，但面试中应避免在核心算法处使用内置方法。 |
 | 17   | 2020.08.21 | [把字符串转换成整数](Notes/String-To-Int.md)                 | `string` `char`                           | 1. **字符运算**：不使用 `map` ，而是用字符运算来实现数字字符到整数的转换；<br>2. **溢出监测**：使用 `ans > boundary || ans == boundary && curr> 7`；<br>3. **字符运算**：使用 `'+'` `'-'` `'0'` 而不是 `43` `45` `48` ，这样能提高代码的可读性. |
-| 18   | 2020.09.11 | [把数组排成最小的数](Notes/Min-Number-Formed-By-Strings.md)  | `string` `sort`                           | 1. **字符串数组转字符串**：`StringBuilder` `.append()` `.toString`，速度快于 `String.join("",strs)` ； <br>2. **拓展内置的排序**：直接修改 `Array.sort(arr, Comparator)` 的比较器参数，是一种比较巧妙的排序拓展方法. |
+| 18   | 2020.09.11 | [把数组排成最小的数](Notes/Min-Number-Formed-By-Strings.md)  | `string` `sort`                           | 1. **字符串数组转字符串**：`StringBuilder` `.append()` `.toString`，速度快于 `String.join("",strs)` ； <br>2. **拓展内置的排序**：直接修改 `Array.sort(arr, Comparator)` 的比较器参数，是一种比较巧妙的排序拓展方法；<br>3. **多种排序算法** |
 | 19   | 2020.09.16 | [两个链表的第一个公共节点](Notes/Get-Intersection-Node.md)   | `tree` `double pointer`                   | 1. **一个关于两个单链表的技巧**：从A的尾跳到B的头，从B的尾跳到A的头 |
 | 20   | 2020.09.16 | [复杂链表的复制](Notes/Copy-Random-List.md)                  | `linked list` `hash map`                  | 1. **递归中的状态理解**：递归开始向上返回结果前已经完成链表的遍历。 |
 | 21   | 2020.09.22 | [II. 队列的最大值](Notes/Max-Queue.md)                       | `Deque` `Queue`                           | 1. **Integer不可以直接比较！**                               |
@@ -33,4 +33,14 @@
 | 26   | 2020.09.24 | [两数相除](Notes/Divide.md)                                  | `Binary search` `Bit operation`           | 1. **位运算的应用**：不用乘法，快速得到两个数相乘/除的正负号：`int sign = ( (dividend ^ divisor) < 0) ? -1 : 1;`；<br>2. **位运算的应用**：不用乘法，进行乘二以实现二分法：`temp <<= 1`。 |
 | 27   | 2020.09.25 | [旋转数组的最小数字](Notes/min-Array.md)                     | `binary search`                           | 1. **略加变化的二分法**：使用了 `j--` 这一辅助变化来解决元素重复的情况。 |
 | 28   | 2020.09.25 | [字符串的排列](Notes/Permutation.md)                         | `Backtracking` `string`                   | 1. **回溯算法模板**：a. **变量**：全局容器、局部容器、深度计数；b. **递归内容**：终止条件、深度优先、回溯向下一广度搜索；c. **要点**：在每次递归的前后作对称的操作，使得总可以回溯到上一层的状态。 |
+| 29   | 2020.09.28 | [二进制中1的个数](Notes/Hamming-Weight.md)                   | `Bit-operation` `Math`                    | 1. **利用位运算判断二进制第一位是否为1**：`(n & 1) == 1` ；<br>2. **利用位运算遍历二进制的每一位**：`n >>>= 1` （无符号数）。 |
+| 30   | 2020.09.28 | [数值的整数次方](Notes/My-Pow.md)                            | `Bit-operation` `Math`                    | 1. **利用位运算判断整数能否被2整除**：`(n & 1) == 1` ；<br/>2. **计算幂函数的巧妙思路**。 |
+| 31   | 2020.09.28 | [打印从1到最大的n位数](Notes/Print-Numbers.md)               | `Big-Integer-Problem`                     | 1.**使用字符串来实现大数**； <br>2. **利用循环和遍历来避开字符串进位问题** ；<br>3. **除去开头的0** ：当前数字的位数 + 当遍历到全9数字时，从下一个数字开始，位数+1。 |
+| 32   | 2020.09.28 | [剪绳子 II](Notes/Cutting-Rope.md)                           | `Big-Integer-Problem` `Math`              | 1. **数学**：每段为3时，乘积最大，为4或2次之； <br>2. **大数求余**：循环求余，$x^a⊙p=[(x^{a−1}⊙p)(x⊙p)]⊙p=[(x^{a−1}⊙p)x]⊙p$，由于都小于$p$，所以简化为 $(x^{a-1}x)⊙p$ |
+| 33   | 2020.09.28 | [旋转图像](https://leetcode-cn.com/problems/rotate-image/)   | `Array`                                   | 1. **循环移动位置：**用与移动相反的方向进行赋值，这样可以只使用一个临时变量。 |
+| 34   | 2020.09.28 | [字母异位词分组](https://leetcode-cn.com/problems/group-anagrams/) | `String` `HashMAp`                        | 1. 要使用 `String.valueOf()`， 使用 `toString()` 得到的字符串，即使看起来一样，也不被判定为同一个key |
+| 35   | 2020.10.04 | [最小的k个数](Notes/Get-Least-Numbers.md)                    | `quick selection` `heap sort`             | 1. **比较快速排序与堆排序**：堆排序空间复杂度低、可以接收数据流、不改变原始数据；快速排序时间复杂度低、可以就地进行。 |
+| 36   | 2020.10.04 | [数字序列中某一位的数字](Notes/Find-Nth-Digit.md)            | `Math` `Big-Integer`                      | 1. **大数问题，使用 `long`**： 因为限制中指出 `0 <= n < 2^31`，而 `int` 的最大值为 `2^31-1` ，所以要考虑使用 `long` <br>2. **长整型转字符串**：注意将数据类型 `long` 转换为字符串时，使用的静态方法 `Long.toString()` 。 |
+| 37   | 2020.10.04 | [礼物的最大价值](Notes/Max-Value.md)                         | `dynamic programming`                     | 1. **解题思路简洁，故能顺藤摸瓜得到简洁的代码**：在寻找最大求和路径时，不从前往后看，而是从后往前看，得出每个位置能获得的最大和。 |
+| 38   | 2020.10.06 | [平衡二叉树]()                                               |                                           |                                                              |
 

@@ -27,7 +27,7 @@ class MovingAverage {
     private int tail;
     private boolean isFull;
     private int size;
-    /** Initialize your data structure here. */
+
     public MovingAverage(int size) {
         array = new int[size];
         tail = 0;

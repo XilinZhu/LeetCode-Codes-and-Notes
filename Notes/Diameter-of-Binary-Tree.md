@@ -11,7 +11,7 @@
 > Given a binary tree, you need to compute the length of the diameter of the tree. The diameter of a binary tree is the length of the longest path between any two nodes in a tree. This path may or may not pass through the root.
 >
 > ```
->  		  1
+>  	   1
 >          / \
 >         2   3
 >        / \     
@@ -24,7 +24,7 @@
 
 ## Answer
 
-- 涉及到树的题目，尽量使用递归。这是数的定义所决定的。
+- 涉及到树的题目，尽量使用递归。这是树的定义所决定的。
 - 难点：在递归计算深度 `depth` 的同时，更新 `maxDiameter` 
 
 ```java

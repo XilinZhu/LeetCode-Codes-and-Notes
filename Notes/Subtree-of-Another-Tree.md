@@ -72,14 +72,14 @@
  */
 class Solution {
     public boolean isSubtree(TreeNode s, TreeNode t) {
-        if (t == null) return true;   // t 为 null 一定都是 true
-        if (s == null) return false;  
+        if (t == null) return true;   // 空树一定是子树
+        if (s == null) return false;  // 空树一定不包含非空子树
         return isSubtree(s.left, t) || isSubtree(s.right, t) || isSameTree(s,t);
     }
 
     public boolean isSameTree(TreeNode s, TreeNode t){
-        if (s == null && t == null) return true;
-        if (s == null || t == null) return false;
+        if (s == null && t == null) return true; //全为空
+        if (s == null || t == null) return false; //在前一个判断基础上，可知一个为空，一个不为空
         if (s.val != t.val) return false;
         return isSameTree(s.left, t.left) && isSameTree(s.right, t.right);
     }

@@ -15,7 +15,7 @@
 - 维护一个辅助栈来动态记录最小值.
   - WHEN PUSH：若新的值大于最小栈栈顶的值，则忽略；否则 `push`
   - WHEN POP：若原始栈顶的值与最小栈顶的值相等，则都 `pop`；否则，仅原始栈 `pop`
-  - WHEN TOP：都 `pop`
+  - WHEN TOP：都 `top`
 
 ```java
 class MinStack {
@@ -52,7 +52,7 @@ class MinStack {
 - 难点：`push` 和 `pop` 都需要改进，使得记录最小值的同时不干扰基本的功能
 - 解决方案
   1. WHEN PUSH：保存最小值信息。每次 `push` 都将当前值与 `minVal` 比较，若不大于，则首先将 `minVal` 入栈，然后 `push`；否则，直接 `push`.
-     - 需要取不大于，而不是小于，是由第 2 点决定的
+     - 需要取小于等于，而不仅是小于，是由第 2 点决定的
   2. WHEN POP：回溯最小值信息。每次 `pop` 都将返回值与 `minVal` 比较，若等于则再次 `pop`，这时的值为最小值的回溯值（回溯值可能与 `minVal` 相等），将 `minVal` 更新为该值.
 
 ```java

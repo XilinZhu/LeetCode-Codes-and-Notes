@@ -5,6 +5,7 @@
 - DATE: 2020.08.06
 - LINK: [LeetCode-Problem206](https://leetcode-cn.com/problems/reverse-linked-list/)
 - TAG: `LinkedList` `recursion` `iteration`
+- UPDATE: 2020.10.10
 
 ### Description
 
@@ -26,14 +27,14 @@
  */
  public ListNode reverseList(ListNode head) {
     if (head == null || head.next == null) return head;
-    ListNode p = reverseList(head.next);
+    ListNode p = reverseList(head.next); //存储了尾节点
     head.next.next = head;
     head.next = null;
     return p;
 }
 ```
 
-- `head.next.next = head;` 实现了单链表的反向操作，十分优美；
+- `head.next.next = head;` 从后往前执行，实现了单链表的反向操作，十分优美；
 - 单链表中要避免循环链表出现，故 `head.next =null`
 
 ### Answer 2: Iteration

@@ -5,7 +5,7 @@
 ## Information
 
 - DATE: 2020.08.14
-- LINK: [剑指 Offer 54](https://leetcode-cn.com/problemset/lcof/?topicSlugs=tree)
+- LINK: [剑指 Offer 54](https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-di-kda-jie-dian-lcof/)
 - TAG: `tree` `backtracing` `list`
 
 ## Description
@@ -19,11 +19,11 @@
 > 输入: `root = [3,1,4,null,2], k = 1`
 >
 > ```
->    3
->   / \
->  1   4
->   \
->    2
+>         3
+>       / \
+>     1   4
+>       \
+>         2
 > ```
 >
 > 输出: `4`
@@ -31,7 +31,7 @@
 > **示例** 2:
 >
 > 输入: `root = [5,3,6,2,4,null,null,1], k = 3`
->       
+>    
 >
 > ```
 >        5
@@ -69,8 +69,31 @@ class Solution {
 
 ## Better Answer
 
-- 不适用队列记录节点值，通过两个对象字段来记录当前状态.
+- 不使用队列记录节点值，通过两个对象字段来记录当前状态.
+
 - 虽然效率得到了提高，但这两种算法都因为全局变量的使用而不够优雅。其主要原因在于Java中的基本类型是按值传递的.
+
+  - 使用 `Integer` 也不能实现引用传递，原因在于 `Integer` 的值是私有变量
+
+    ```java
+        /** 
+         * The value of the <code>Integer</code>. 
+         * 
+         * @serial 
+         */  
+        private final int value;  
+      
+        /** 
+         * Constructs a newly allocated <code>Integer</code> object that 
+         * represents the specified <code>int</code> value. 
+         * 
+         * @param   value   the value to be represented by the  
+         *          <code>Integer</code> object. 
+         */  
+        public Integer(int value) {  
+        this.value = value;  
+        }
+    ```
 
 ```java
 class Solution {

@@ -26,7 +26,7 @@
 
 ## My Answer
 
-- 利用前序遍历和中序遍历的关系，可以将中序遍历以一个根节点为界线分开两部分，左侧为其左子树节点，右侧为其右子树的节点。不仅如此，将同样的划分方法应用于先序遍历，左侧第2个元素应为根节点的左儿子，右侧第1个元素为根节点的右儿子.
+- 利用前序遍历和中序遍历的关系，可以将中序遍历以一个根节点为界线分开两部分，左侧为其左子树节点，右侧为其右子树的节点。不仅如此，将同样的划分方法应用于先序遍历序列，左侧第2个元素应为根节点的左儿子，右侧第1个元素为根节点的右儿子.
 - 整个算法的核心在于
   1. 寻找根节点于 `inorder` 数组中所在的位置；
      - 遍历 `inorder`，10-13行
@@ -111,9 +111,9 @@ class Solution {
 
   - ```java
     Map<Integer, Integer> indexMap = new HashMap<>();
-            for(int i =0; i < inorder.length; i++){
-                indexMap.put(inorder[i], i);
-            }
+        for(int i =0; i < inorder.length; i++){
+            indexMap.put(inorder[i], i);
+        }
     ```
 
 - 调整函数的输入输出方式，直接地实现递归逻辑
@@ -123,8 +123,8 @@ class Solution {
     ...
     if (preEnd - preStart == 1) return root;
     ...
-    root.left = buildTree(preorder, inorder, preStart+1, preStart+i+1, inStart, inStart+i,indexMap);
-    root.right = buildTree(preorder, inorder, preStart+i+1, preEnd, inStart+i+1, inEnd,indexMap);
+    root.left = buildTree(preorder, inorder, preStart+1, preStart+i+1, inStart, inStart+i, indexMap);
+    root.right = buildTree(preorder, inorder, preStart+i+1, preEnd, inStart+i+1, inEnd, indexMap);
     ```
 
 ```java
@@ -141,15 +141,15 @@ class Solution {
     private TreeNode buildTree(int[] preorder, int[] inorder, int preStart, int preEnd, int inStart, int inEnd, Map<Integer,Integer> indexMap){
         if (preEnd - preStart == 0) return null;
         
-        int rootVal = preorder[preStart];
+        int rootVal = preorder[preStart]; //利用先序遍历确定根节点
         TreeNode root = new TreeNode(rootVal);
 
         if (preEnd - preStart == 1) return root;
 
-        int i = indexMap.get(rootVal) - inStart; // i is the distance from inStart to index of rootVal, and is also the length of left child-tree.
+        int leftLen = indexMap.get(rootVal) - inStart; // i is the distance from inStart to index of rootVal, and is also the length of left child-tree.利用中序遍历将节点分为左右子树两组
 
-        root.left = buildTree(preorder, inorder, preStart+1, preStart+i+1, inStart, inStart+i,indexMap);
-        root.right = buildTree(preorder, inorder, preStart+i+1, preEnd, inStart+i+1, inEnd,indexMap);
+        root.left = buildTree(preorder, inorder, preStart+1, preStart+1+leftLen, inStart, inStart+leftLen, indexMap);// 左子树的长度为 i， 故 preStart+1+i
+        root.right = buildTree(preorder, inorder, preStart+1+leftLen, preEnd, inStart+leftLen+1, inEnd, indexMap);
 
         return root;
     }

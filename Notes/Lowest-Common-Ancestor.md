@@ -3,7 +3,7 @@
 ## Information
 
 - DATE: 2020.08.15
-- LINK: [剑指 Offer 68](https://leetcode-cn.com/problemset/lcof/?topicSlugs=tree)
+- LINK: [剑指 Offer 68](https://leetcode-cn.com/problems/er-cha-shu-de-zui-jin-gong-gong-zu-xian-lcof/)
 - TAG: `tree ` `Postorder traversal`
 
 ## Description
@@ -32,7 +32,7 @@
 
 - 使用两个标志位来记录目标节点的查找情况.
 - 使用后序遍历.
-- 为了区分两个节点在同一棵子树和不在同一棵子树的情况，在左节点遍历完，进入右节点之前，记录当前查找状态，并重置状态.
+- 为了区分两个节点在同一棵子树和不在同一棵子树的情况，在左节点遍历完，进入右节点之前，记录当前查找状态后重置状态.
 
 ```java
 class Solution {
@@ -73,17 +73,22 @@ class Solution {
 
 ## Better Answer
 
+- 可提问：两个节点是否一定存在于树中？
+
 - **不需要同时找到两个节点**，比如在示例 2 中，只要在左子树找到了 5，那么接下来就只需要确认，即与 5 同级别的右子树中是否有另一个节点 4——若没有，则节点 4 必是5的子节点，返回 5；若有，则公共祖先必是5的父节点
 
   ```java
   class Solution {
       public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
           if(root == null || root == p || root == q) return root;
+          //后序遍历，左右子树顺序可交换
           TreeNode left = lowestCommonAncestor(root.left, p, q);
           TreeNode right = lowestCommonAncestor(root.right, p, q);
-  
-          if(left == null) return right;
-          if(right == null) return left;
+  		//如何向上返回？答：若左子树没有，右子树也没有，且已知根节点也不是，则向上返回null；若左（右）子树空，右（左）子树不空，则返回右（左）子树；若各自找到，则返回根节点。
+          //题目的另一种理解：找到一个最低的根节点，它同时包含两个子节点。因为要求最低，所以作后序遍历
+          if(left == null && right == null) return null;
+          if(left == null) return right; //目标节点出现的位置
+          if(right == null) return left; //目标节点出现的位置
           return root;
       }
   }

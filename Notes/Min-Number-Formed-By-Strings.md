@@ -73,7 +73,7 @@ class Solution {
             else 
                 break;
         } 
-        swapReference( a, i, right -1 ); // Restore pivot
+        swapReference( a, i, right -1 ); // pivot 归位
         
         quicksort( a, left, i-1 );	//sort small elements
         quicksort( a, i, right);	//sort large elements

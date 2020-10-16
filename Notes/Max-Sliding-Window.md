@@ -76,7 +76,7 @@ public int[] maxSlidingWindow(int[] nums, int k) {
 }
 ```
 
-- 时间复杂度：$O(N\cdot k)$，但实际运行是更快的.
+- 时间复杂度：$O(N\cdot k)$，当重复元素较少时，实际运行是更快的.
 - 空间复杂度：$O(N - k +1)$，用于输出数组.
 
 ## General Answer
@@ -89,9 +89,9 @@ public class MaxSlidingWindow {
     public int[] maxSlidingWindow(int[] nums, int k) {
         if ( nums.length == 0 ) return new int[0];
         if (k == 1) return nums;
+        
         int numOfWindows = nums.length - k + 1;
         int[] res = new int[ numOfWindows ];
-        
         LinkedList<Integer> lis = new LinkedList<>();
         int i;
 		
@@ -115,7 +115,7 @@ public class MaxSlidingWindow {
 }   
 ```
 
-- 时间复杂度：$O(N)$ ，每个元素的访问次数的花费为 $O(N)$ ，每个元素最多一次入队和出队，花费为 $O(2N)$，总时间复杂度为 $O(N)$
+- 时间复杂度：$O(N)$ ，每个元素的访问次数的花费为 $O(N)$ ，每个元素最多一次入队和出队，花费为 $O(2N)$，元素比较次数为 $O(N)$ 总时间复杂度为 $O(N)$
 - 空间复杂度：$O(N)$，输出数组的空间复杂度为 $O(N-k+1)$ ，双向队列的空间复杂度为 $O(k)$
 
 ## Another General Answer

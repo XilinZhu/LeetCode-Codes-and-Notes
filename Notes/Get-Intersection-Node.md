@@ -67,13 +67,13 @@ public class Solution {
 }
 ```
 
-- 时间复杂度：$O(n+m+max(m,n))$
+- 时间复杂度：$O(2n+2m)$
 - 空间复杂度：$O(1)$
 
 ## Better Answer
 
 - 巧妙的双指针方法，同时还包含了两个链表不相交的特殊情况。
-  - 若不相交，则两个节点在运动了 $m+n$ 此后同时指向 `null`
+  - 若不相交，则两个节点在运动了 $m+n$ 次后同时指向 `null`
 - ![](https://i.loli.net/2020/09/16/wPe3EiLMyCBa8nS.png)
 
 ```java
@@ -94,3 +94,4 @@ public class Solution {
 
 - 时间复杂度：$O(2n+2m)$
 - 空间复杂度：$O(1)$
+

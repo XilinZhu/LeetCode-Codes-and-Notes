@@ -3,7 +3,7 @@
 ## Information
 
 - DATE: 2020.09.28
-- LINK: [剑指 Offer 14-II.](https://leetcode-cn.com/problems/er-jin-zhi-zhong-1de-ge-shu-lcof/)
+- LINK: [剑指 Offer 14-II.](https://leetcode-cn.com/problems/jian-sheng-zi-ii-lcof/)
 - TAG: `Big-Integer-Problem  `  `Math`
 
 ## Description
@@ -35,18 +35,18 @@
 class Solution {
     public int cuttingRope(int n) {
         if(n <= 3) return n - 1;
-        long res=1L;
-        int p=(int)1e9+7;
+        long res = 1;
+        int p = (int)1e9 + 7;
         //贪心算法，优先切三，其次切二
         while(n>4){
-            res=res*3%p;
-            n-=3;
+            res = res * 3 % p;
+            n -= 3;
         }
         //出来循环只有三种情况，分别是n=2、3、4
-        return (int)(res*n%p);
+        return (int)res * n % p;
     }
 }
 ```
 
 - 数学：每段为3时，乘积最大，为4或2次之；
-- 大数求余：循环求余，$x^a⊙p=[(x^{a−1}⊙p)(x⊙p)]⊙p=[(x^{a−1}⊙p)x]⊙p$，由于都小于$p$，所以简化为 $(x^{a-1}x)⊙p$
+- 大数求余：循环求余，$x^a⊙p=[(x^{a−1}⊙p)(x⊙p)]⊙p=[(x^{a−1}⊙p)x]⊙p$。在此题中，乘积从小到大，在循环求余中，$x^{a−1}$、$x$都小于$p$，所以简化为 $(x^{a-1}x)⊙p$

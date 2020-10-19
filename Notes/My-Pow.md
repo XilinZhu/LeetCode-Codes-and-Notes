@@ -3,7 +3,7 @@
 ## Information
 
 - DATE: 2020.09.28
-- LINK: [剑指 Offer 16](https://leetcode-cn.com/problems/er-jin-zhi-zhong-1de-ge-shu-lcof/)
+- LINK: [剑指 Offer 16](https://leetcode-cn.com/problems/shu-zhi-de-zheng-shu-ci-fang-lcof/)
 - TAG: `Bit-operation` `Math`
 
 ## Description
@@ -46,11 +46,11 @@ class Solution {
         }
 
         double res = 1;
-        while(b > 0){
+        while(b >= 1){
             if ( (b & 1) == 1){
                 res *= x;
             }
-            b >>>= 1;
+            b >>= 1;
             x *= x;
         }
 
